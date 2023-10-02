@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/Banner';
 import Form from './components/Form';
 import Team from './components/Team';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -45,23 +46,28 @@ function App() {
     
     const [coworkers, setcoworkers] = useState([])
 
+    function deleteCoworker() {
+        console.log('deletando colaborador')
+    }
+
     const addCoworker = (coworker) => {
-        console.log(coworker)
         setcoworkers([...coworkers, coworker])
-        console.log(coworkers)
     }
 
     return (
         <div className="App">
             <Banner />
             <Form teams={teams.map(team => team.name)} recordCoworker={coworker => addCoworker(coworker)} />
-            {teams.map(team => <Team
-                key={team.name}
-                name={team.name}
-                secondaryColor={team.secondaryColor}
-                primaryColor={team.primaryColor}
-                coworkers={coworkers.filter(coworker => coworker.team === team.name)}
-            />)}
+            <section className='times'>
+                <h1>Minha Organização</h1>
+                {teams.map((team, index) => <Team
+                    key={index}
+                    team={team}
+                    coworkers={coworkers.filter(coworker => coworker.team === team.name)}
+                    onDelete={deleteCoworker}
+                />)}
+            </section>
+            <Footer />
         </div>
     );
 }

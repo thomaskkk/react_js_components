@@ -1,14 +1,16 @@
+import { AiFillCloseCircle } from 'react-icons/ai'
 import './Card.css'
 
-const Card = (props) => {
+const Card = ({ coworker, bgColor, onDelete}) => {
     return (
         <div className='card'>
-            <div className='header' style={{ backgroundColor: props.bgColor }}>
-                <img src={props.image} alt={props.name} />
+            <AiFillCloseCircle size={25} className='delete' onClick={onDelete} />
+            <div className='header' style={{ backgroundColor: bgColor }}>
+                <img src={coworker.image} alt={coworker.name} />
             </div>
             <div className='footer'>
-                <h4>{props.name}</h4>
-                <h5>{props.role}</h5>
+                <h4>{coworker.name}</h4>
+                <h5>{coworker.role}</h5>
             </div>
         </div>
     )

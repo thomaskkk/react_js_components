@@ -1,17 +1,18 @@
 import Card from '../Card'
 import './Team.css'
 
-const Team = (props) => {
-    const css = { backgroundColor: props.secondaryColor }
-
+const Team = ({ team, coworkers, onDelete }) => {
     return (
-        (props.coworkers.length > 0) ? <section className='team' style={css}>
-            <h3 style={{ borderColor: props.primaryColor }}>{props.name}</h3>
+        (coworkers.length > 0) && <section className='team' style={{ backgroundImage: 'url(/img/fundo.png)', backgroundColor: team.secondaryColor }}>
+            <h3 style={{ borderColor: team.primaryColor }}>{team.name}</h3>
             <div className='coworkers'>
-                {props.coworkers.map(coworker => <Card bgColor={props.primaryColor} key={coworker.name} name={coworker.name} role={coworker.role} image={coworker.image} />)}
+                {coworkers.map((coworker, index) => {
+                    return (
+                        <Card bgColor={team.primaryColor} key={index}coworker={coworker} onDelete={onDelete} />
+                    )
+                })}
             </div>
         </section>
-        : ''
     )
 }
 
