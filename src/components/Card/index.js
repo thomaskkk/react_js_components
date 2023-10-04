@@ -4,7 +4,11 @@ import './Card.css'
 const Card = ({ coworker, bgColor, onDelete}) => {
     return (
         <div className='card'>
-            <AiFillCloseCircle size={25} className='delete' onClick={onDelete} />
+            <AiFillCloseCircle
+                size={25}
+                className='delete'
+                onClick={() => onDelete(coworker.id)}
+            />
             <div className='header' style={{ backgroundColor: bgColor }}>
                 <img src={coworker.image} alt={coworker.name} />
             </div>

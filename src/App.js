@@ -45,10 +45,10 @@ function App() {
         }
     ])
     
-    const [coworkers, setcoworkers] = useState([])
+    const [coworkers, setCoworkers] = useState([])
 
-    function deleteCoworker() {
-        console.log('deletando colaborador')
+    function deleteCoworker(id) {
+        setCoworkers(coworkers.filter(coworker => coworker.id !== id))
     }
 
     function changeTeamColor(color, id) {
@@ -61,7 +61,7 @@ function App() {
     }
 
     const addCoworker = (coworker) => {
-        setcoworkers([...coworkers, coworker])
+        setCoworkers([...coworkers, coworker])
     }
 
     return (
