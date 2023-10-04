@@ -60,6 +60,10 @@ function App() {
         }))
     }
 
+    const addTeam = (team) => {
+        setTeams([...teams, { ...team, id: uuidv4() }])
+    }
+
     const addCoworker = (coworker) => {
         setCoworkers([...coworkers, coworker])
     }
@@ -67,7 +71,11 @@ function App() {
     return (
         <div className="App">
             <Banner />
-            <Form teams={teams.map(team => team.name)} recordCoworker={coworker => addCoworker(coworker)} />
+            <Form
+                recordTeam={addTeam}
+                teams={teams.map(team => team.name)}
+                recordCoworker={coworker => addCoworker(coworker)}
+            />
             <section className='times'>
                 <h1>Minha Organização</h1>
                 {teams.map((team, index) => <Team
