@@ -33,9 +33,9 @@ const Form = ({ recordCoworker, teams, recordTeam }) => {
     }
 
     return (
-        <section className='form'>
-            <form onSubmit={onSaveCoworker}>
-                <h3>Preencha os dados para criar o card do colaborador</h3>
+        <section className='form-container'>
+            <form className='form-form' onSubmit={onSaveCoworker}>
+                <h2>Preencha os dados para criar o card do colaborador</h2>
                 <Field
                     required
                     label="Nome"
@@ -64,12 +64,10 @@ const Form = ({ recordCoworker, teams, recordTeam }) => {
                     value={team}
                     onChange={value => setTeam(value)}
                 />
-                <Button>
-                    Criar Card
-                </Button>
+                <Button text=' Criar Card' />
             </form>
-            <form onSubmit={onSaveTeam}>
-                <h3>Preencha os dados para criar o time</h3>
+            <form className='form-form' onSubmit={onSaveTeam}>
+                <h2>Preencha os dados para criar o time</h2>
                 <Field
                     required
                     label="Nome"
@@ -85,9 +83,7 @@ const Form = ({ recordCoworker, teams, recordTeam }) => {
                     value={colorTeam}
                     onChange={value => setColorTeam(value)}
                 />
-                <Button>
-                    Criar Time
-                </Button>
+                <Button text='Criar Time' />
             </form>
         </section>
 

@@ -1,20 +1,16 @@
 .team {
     text-align: center;
     padding:  32px;
+    background-blend-mode: multiply;
     position: relative;
 }
 
 .team h3 {
     font-size: 32px;
+    font-family: 'Prata';
     border-bottom: 4px solid;
     display: inline-block;
     padding-bottom: 8px;
-    text-align: center;
-    font-family: Prata;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .team .coworkers {
