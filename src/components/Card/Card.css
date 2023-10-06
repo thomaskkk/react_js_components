@@ -1,12 +1,12 @@
 .card {
+    position: relative;
     width: 280px;
 }
 
-.card .header {
-    background-color: #f0f0f0;
-    border-radius: 10px 10px 0 0;
+.card .card-header {
+    background-color:  #F0F0F0;
+    border-radius: 10px 10px 0px 0px;
 }
-
 .card img {
     width: 100px;
     border-radius: 50%;
@@ -14,25 +14,35 @@
     bottom: -50px;
 }
 
-.card .footer {
-    background: #ffffff;
+.card .card-footer {
+    background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
-    border-radius: 0 0 10px 10px;
+    border-radius: 0px 0px 10px 10px;
     padding-top: 90px;
     padding-bottom: 40px;
 }
 
-.card .footer h4 {
-    color: #6278f7;
+.card .card-footer h4 {
+    color: #6278F7;
     font-size: 18px;
     line-height: 22px;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-.card .footer h5 {
+.card .card-footer h5 {
     font-size: 18px;
     line-height: 22px;
     color: #212121;
     padding: 0 16px;
+}
+
+.card-delete {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.card-fav {
+    margin-top: 20px;
 }

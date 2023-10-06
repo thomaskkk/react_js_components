@@ -1,19 +1,26 @@
 import './Form.css'
-import TextField from '../TextField';
+import Field from '../Field';
 import Dropdown from '../Dropdown';
 import Button from '../Button';
 import { useState } from 'react';
 
-const Form = (props) => {
+const Form = ({ recordCoworker, teams, recordTeam }) => {
 
     const [name, setName] = useState('')
     const [role, setRole] = useState('')
     const [image, setImage] = useState('')
     const [team, setTeam] = useState('')
+    const [nameTeam, setNameTeam] = useState('')
+    const [colorTeam, setColorTeam] = useState('')
 
-    const onSave = (event) => {
+    const onSaveTeam = (event) => {
         event.preventDefault()
-        props.recordCoworker({
+        recordTeam({ name: nameTeam, color: colorTeam })
+    }
+
+    const onSaveCoworker = (event) => {
+        event.preventDefault()
+        recordCoworker({
             name,
             role,
             image,
@@ -26,40 +33,57 @@ const Form = (props) => {
     }
 
     return (
-        <section className='form'>
-            <form onSubmit={onSave}>
+        <section className='form-container'>
+            <form className='form-form' onSubmit={onSaveCoworker}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <TextField
-                    required={true}
+                <Field
+                    required
                     label="Nome"
                     placeholder="Digite seu nome"
                     value={name}
                     onChange={value => setName(value)}
                 />
-                <TextField
-                    required={true} 
+                <Field
+                    required 
                     label="Cargo" 
                     placeholder="Digite seu cargo"
                     value={role}
                     onChange={value => setRole(value)}
                 />
-                <TextField
-                    required={true}
+                <Field
+                    required
                     label="Imagem"
                     placeholder="Digite o endereço da imagem"
                     value={image}
                     onChange={value => setImage(value)}
                 /> 
                 <Dropdown
-                    required={true}
+                    required
                     label="Time"
-                    itens={props.teams}
+                    itens={teams}
                     value={team}
                     onChange={value => setTeam(value)}
                 />
-                <Button>
-                    Criar Card
-                </Button>
+                <Button text=' Criar Card' />
+            </form>
+            <form className='form-form' onSubmit={onSaveTeam}>
+                <h2>Preencha os dados para criar o time</h2>
+                <Field
+                    required
+                    label="Nome"
+                    placeholder="Digite o nome do time"
+                    value={nameTeam}
+                    onChange={value => setNameTeam(value)}
+                />
+                <Field
+                    required 
+                    type='color'
+                    label="Cor" 
+                    placeholder="Digite a cor do time"
+                    value={colorTeam}
+                    onChange={value => setColorTeam(value)}
+                />
+                <Button text='Criar Time' />
             </form>
         </section>
 
