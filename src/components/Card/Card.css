@@ -3,7 +3,7 @@
     width: 280px;
 }
 
-.card .header {
+.card .card-header {
     background-color:  #F0F0F0;
     border-radius: 10px 10px 0px 0px;
 }
@@ -14,7 +14,7 @@
     bottom: -50px;
 }
 
-.card .footer {
+.card .card-footer {
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 10px 10px;
@@ -22,7 +22,7 @@
     padding-bottom: 40px;
 }
 
-.card .footer h4 {
+.card .card-footer h4 {
     color: #6278F7;
     font-size: 18px;
     line-height: 22px;
@@ -30,14 +30,14 @@
     margin-bottom: 8px;
 }
 
-.card .footer h5 {
+.card .card-footer h5 {
     font-size: 18px;
     line-height: 22px;
     color: #212121;
     padding: 0 16px;
 }
 
-.delete {
+.card-delete {
     position: absolute;
     right: -10px;
     top: -10px;

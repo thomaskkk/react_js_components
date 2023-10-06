@@ -6,13 +6,13 @@ const Card = ({ coworker, bgColor, onDelete}) => {
         <div className='card'>
             <AiFillCloseCircle
                 size={25}
-                className='delete'
+                className='card-delete'
                 onClick={() => onDelete(coworker.id)}
             />
-            <div className='header' style={{ backgroundColor: bgColor }}>
+            <div className='card-header' style={{ backgroundColor: bgColor }}>
                 <img src={coworker.image} alt={coworker.name} />
             </div>
-            <div className='footer'>
+            <div className='card-footer'>
                 <h4>{coworker.name}</h4>
                 <h5>{coworker.role}</h5>
             </div>
